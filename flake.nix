@@ -25,6 +25,19 @@
             loguru
           ];
         };
+        packages.py13 = pkgs.python313Packages.buildPythonPackage rec {
+          pname = "loguru-intercepthandler";
+          version = "0.1.0";
+          src = ./.;
+          doCheck = false;
+          pyproject = true;
+          nativeBuildInputs = with pkgs.python313Packages; [
+            hatchling
+          ];
+          propagatedBuildInputs = with pkgs.python313Packages; [
+            loguru
+          ];
+        };
       }
     );
 }
